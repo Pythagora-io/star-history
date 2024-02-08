@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Star History</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@^3"></script>
+  <script src="https://cdn.jsdelivr.net/npm/moment@^2"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-moment@^1"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-zoom@2.0.1/dist/chartjs-plugin-zoom.min.js"></script>
+</head>
+<body>
+  <h1>Welcome to Star History</h1>
+  <form id="repoForm">
+    <label for="repoUrl1">Repository URL 1:</label>
+    <input type="text" id="repoUrl1" name="repoUrl1" placeholder="Enter GitHub repo URL" required>
+    <label for="repoUrl2">Repository URL 2:</label>
+    <input type="text" id="repoUrl2" name="repoUrl2" placeholder="Enter GitHub repo URL" required>
+    <button type="submit">Get Star History</button>
+  </form>
+  <canvas id="starChart" width="800" height="400"></canvas>
+
+  <script src="/js/validation.js"></script>
+  <script src="/js/main.js"></script>
+</body>
+</html>
