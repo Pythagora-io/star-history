@@ -1,18 +1,18 @@
 # Star_History
 
-Star_History is a Node.js web application that enables authenticated users to visualize and compare the star history of two public GitHub repositories. Users can input GitHub repository URLs, and the app fetches the historical star data, displays it on an interactive line chart, and stores it in MongoDB for future queries.
+Star_History is a Node.js web application that allows users to input URLs for two public GitHub repositories, compare their historical star data, and visualize this information on a zoomable line chart. Users must be registered and authenticated to access this feature.
 
 ## Overview
 
-The app's backend is built on Node.js with Express, using Passport.js for user authentication and MongoDB for session storage and data persistence. The frontend uses EJS for templating and Chart.js for rendering the comparative star history charts. The GitHub API is accessed using an authenticated token to retrieve historical star data, which is stored in a .env file for security.
+The application is structured into a backend built with Node.js and Express, serving EJS rendered pages for the user interface. User sessions are managed with MongoDB utilizing connect-mongo, while user authentication is handled by Passport.js. The star history data is fetched using the authenticated GitHub API, stored in MongoDB for caching, and plotted using Chart.js with a chartjs-plugin-zoom for interactivity.
 
 ## Features
 
-- Comparison of GitHub repository star history via inputted URLs
-- Zoomable line charts for detailed star history analysis
-- User registration, login, and logout functionality
-- Caching of repository star data in MongoDB to optimize performance
-- Error handling for private repositories and invalid URL inputs
+- Fetch and compare star history for two public GitHub repositories
+- User authentication with register/login/logout functionality
+- Cached star history data to minimize API calls
+- Zoomable and interactive line charts
+- Server-side error handling and user input validation
 
 ## Getting started
 
@@ -20,15 +20,15 @@ The app's backend is built on Node.js with Express, using Passport.js for user a
 
 - Node.js
 - MongoDB
-- A GitHub account with an API token
+- A GitHub API token
 
 ### Quickstart
 
-1. Clone the repository to your local environment.
-2. Install the necessary npm packages using `npm install`.
-3. Configure the .env file with your GitHub API token and MongoDB URI.
-4. Start the MongoDB service on your system.
-5. Launch the application with `npm start` and access it at `http://localhost:3000/`.
+1. Clone the repository to your local machine.
+2. Install the dependencies by running `npm install`.
+3. Create a `.env` file with your own GitHub API token and other environment settings.
+4. Ensure that MongoDB is running locally on your machine.
+5. Start the application server with `npm start` and access it via `http://localhost:3000/`.
 
 ### License
 

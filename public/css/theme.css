@@ -1,0 +1,144 @@
+/* theme.css */
+
+/* Base color definitions. */
+:root {
+    --dark-charcoal: #333333;
+    --deep-blue: #2C3E50;
+    --light-gray: #E0E0E0;
+    --off-white: #F5F5F5;
+  
+    /* Accent colors. */
+    --github-purple: #6e5494; /* GitHub's primary brand color */
+    --graph-blue: #007bff;
+    --graph-red: #dc3545;
+  
+    /* Secondary colors. */
+    --muted-white: #CCCCCC;
+    --lighter-primary: #9f7aea; /* Lighter purple shade */
+    --muted-yellow: #F9E79F;
+}
+
+body {
+    background-color: var(--dark-charcoal);
+    color: var(--light-gray);
+}
+
+a {
+    color: var(--github-purple);
+    text-decoration: none; /* Remove underline from links */
+}
+
+a:hover {
+    color: var(--lighter-primary);
+}
+
+.btn-primary {
+    background-image: linear-gradient(to right, var(--graph-blue), var(--graph-red)); /* Updated gradient for button */
+    border: none; /* Border removed to match the header/footer style */
+}
+
+.btn-primary:hover {
+    background-image: linear-gradient(to right, var(--graph-red), var(--graph-blue)); /* Inverse gradient for hover */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Shadow effect for depth */
+}
+
+.form-label {
+    color: var(--off-white);
+    font-weight: bold; /* Make labels bold to stand out */
+}
+
+.form-control {
+    background-color: var(--deep-blue);
+    color: var(--off-white);
+    border-color: var(--muted-white);
+}
+
+.form-control:focus {
+    box-shadow: 0 0 0 0.2rem rgba(156, 136, 255, 0.25); /* Add focus color */
+    border-color: var(--lighter-primary);
+}
+
+/* Additional styles for improved aesthetics on the dark theme */
+.card {
+    background-color: var(--deep-blue);
+    border: none;
+}
+
+.card-header {
+    background-color: var(--dark-charcoal);
+    border-bottom: none;
+}
+
+.card-body {
+    color: var(--light-gray);
+}
+
+/* Adjust badges and alerts to fit into the dark theme */
+.badge, .alert {
+    color: var(--off-white);
+}
+
+/* Add styles for table elements */
+.table {
+    color: var(--light-gray);
+}
+
+.table thead th {
+    color: var(--off-white);
+}
+
+/* Redefine button styles to fit into the dark theme */
+.btn {
+    color: var(--off-white);
+    border: none;
+}
+
+.btn:hover {
+    opacity: 0.85;
+}
+
+/* Style for the navigation bar (header) */
+nav.navbar {
+    background: linear-gradient(90deg, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,.15);
+    padding: 1rem 0;
+}
+
+.navbar-brand, .nav-link {
+    color: var(--off-white);
+}
+
+.navbar-brand:hover, .nav-link:hover {
+    color: var(--muted-yellow);
+}
+
+/* Style for the footer */
+footer {
+    background: linear-gradient(0deg, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);
+    color: var(--off-white);
+    padding: 1rem 0;
+}
+
+footer a {
+    color: var(--off-white);
+}
+
+footer a:hover {
+    color: var(--lighter-primary);
+}
+
+/* New container styles for a more aesthetic appearance */
+.container {
+  background-color: var(--deep-blue);
+  padding: 2rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Larger button with great contrast for the primary action */
+.btn-lg {
+  padding: 0.75rem 1.5rem; /* Larger padding for a bigger button */
+  font-size: 1.25rem; /* Larger font size for better readability */
+  border-radius: 0.375rem; /* Rounded corners for a smooth look */
+  transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out; /* Smooth transition for hover effect */
+}

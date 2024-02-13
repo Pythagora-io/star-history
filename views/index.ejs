@@ -3,23 +3,39 @@
 <head>
   <meta charset="UTF-8">
   <title>Star History</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.0/css/bootstrap.min.css" integrity="sha384-KyZXEAg3QhqLMpG8r+Knujsl5+z0I5t9z5lFf5l5u5z5F5w5f5Oj04meM1a7xj" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/chart.js@^3"></script>
   <script src="https://cdn.jsdelivr.net/npm/moment@^2"></script>
   <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-moment@^1"></script>
   <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-zoom@2.0.1/dist/chartjs-plugin-zoom.min.js"></script>
 </head>
 <body>
-  <h1>Welcome to Star History</h1>
-  <form id="repoForm">
-    <label for="repoUrl1">Repository URL 1:</label>
-    <input type="text" id="repoUrl1" name="repoUrl1" placeholder="Enter GitHub repo URL" required>
-    <label for="repoUrl2">Repository URL 2:</label>
-    <input type="text" id="repoUrl2" name="repoUrl2" placeholder="Enter GitHub repo URL" required>
-    <button type="submit">Get Star History</button>
-  </form>
+  <%- include('partials/header', {user: user}) %>
+  <h1 class="text-center my-5 text-off-white">Welcome to Star History</h1>
+  <div class="container my-5">
+    <form id="repoForm" class="row g-3">
+      <div class="col-md-6">
+        <div class="form-floating mb-3">
+          <input type="text" class="form-control" id="repoUrl1" name="repoUrl1" placeholder="Repository URL 1" required autofocus>
+          <label for="repoUrl1" class="text-off-white">Repository URL 1:</label>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-floating mb-3">
+          <input type="text" class="form-control" id="repoUrl2" name="repoUrl2" placeholder="Repository URL 2" required>
+          <label for="repoUrl2" class="text-off-white">Repository URL 2:</label>
+        </div>
+      </div>
+      <div class="col-12 text-center">
+        <button type="submit" class="btn btn-lg btn-primary">Get Star History</button>
+      </div>
+    </form>
+  </div>
+  <div id="alertPlaceholder"></div>
   <canvas id="starChart" width="800" height="400"></canvas>
 
   <script src="/js/validation.js"></script>
   <script src="/js/main.js"></script>
+  <%- include('partials/footer') %>
 </body>
 </html>

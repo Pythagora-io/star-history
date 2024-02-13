@@ -3,13 +3,35 @@
 <head>
   <meta charset="UTF-8">
   <title>Register</title>
+  <!-- Bootstrap CSS CDN -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+  <!-- Custom theme CSS -->
+  <link rel="stylesheet" href="/css/theme.css">
 </head>
-<body>
-  <h1>Registration Form</h1>
-  <form action="/register" method="post">
-    Username: <input type="text" name="username" /><br />
-    Password: <input type="password" name="password" /><br />
-    <input type="submit" value="Register" />
-  </form>
+<body class="bg-dark-charcoal">
+  <%- include('partials/header', {user: user}) %>
+  <div class="container mt-4 text-center">
+    <h2 class="text-off-white">Register</h2>
+    <form action="/register" method="post" class="form-signin mt-3">
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="username" name="username" placeholder="Username" required autofocus>
+        <label for="username" class="text-off-white">Username</label>
+      </div>
+      <div class="form-floating mb-3">
+        <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
+        <label for="password" class="text-off-white">Password</label>
+      </div>
+      <button class="btn btn-lg btn-primary btn-block" type="submit">Register</button>
+    </form>
+  </div>
+  <%- include('partials/footer') %>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.0/js/bootstrap.bundle.min.js" integrity="sha384-zaIcCO4LwTZzJFbcJrA1PAIYyiF6PbPb6Yp6RWt2qjcnH0VfGckB8usT1OOJpFV4" crossorigin="anonymous"></script>
+  <!-- Error and logging handlers -->
+  <script>
+    window.addEventListener('error', function(event) {
+      console.error('An error occurred on the register page:', event.error); // gpt_pilot_debugging_log
+    });
+    console.log('Register page loaded successfully.'); // gpt_pilot_debugging_log
+  </script>
 </body>
 </html>

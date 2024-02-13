@@ -7,11 +7,44 @@ document.addEventListener("DOMContentLoaded", function() {
     const repoUrl2 = document.getElementById('repoUrl2').value;
 
     if (validateUrl(repoUrl1) && validateUrl(repoUrl2)) {
+      form.style.display = 'none';
+      showAlertSpinner('Gathering data, please wait, this may take a while...', 'info');
       loadChartPluginThenFetchData(repoUrl1, repoUrl2);
     } else {
+      console.log('Validation failed for one or both URLs');
       alert('Please enter valid GitHub repository URLs.');
     }
   });
+
+  function showAlertSpinner(message, type) {
+    const alertDiv = document.createElement('div');
+    alertDiv.className = `alert alert-${type} d-flex align-items-center`;
+    alertDiv.innerHTML = `
+      <div class="spinner-border text-primary me-3" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+      ${message}
+      <button type="button" class="btn btn-primary btn-sm ms-auto" onclick="goBack()">Go Back</button>
+    `;
+
+    const alertPlaceholder = document.getElementById('alertPlaceholder');
+    if(alertPlaceholder) {
+      alertPlaceholder.innerHTML = '';
+      alertPlaceholder.appendChild(alertDiv);
+    } else {
+      console.error('Alert placeholder element is not found in the document.');
+    }
+  }
+
+  window.goBack = function() {
+    const alertDiv = document.querySelector('#alertPlaceholder .alert');
+    if(alertDiv) {
+      alertDiv.remove();
+    } else {
+      console.error('Alert element could not be found when attempting to remove it.');
+    }
+    form.style.display = 'block';
+  };
 
   function loadChartPluginThenFetchData(repoUrl1, repoUrl2) {
     if (typeof Chart === 'undefined') {
@@ -36,9 +69,14 @@ document.addEventListener("DOMContentLoaded", function() {
     .then(data => {
       console.log('Successfully fetched star history data', data); // gpt_pilot_debugging_log
       createChart(data);
+      const alertDiv = document.querySelector('#alertPlaceholder .alert');
+      if(alertDiv) {
+        alertDiv.remove();
+      }
+      form.style.display = 'block';
     })
     .catch(error => {
-      console.error('Error fetching star history:', error.stack || error); // gpt_pilot_debugging_log
+      console.error('Error fetching star history:', error); // gpt_pilot_debugging_log
       alert('Failed to fetch star history. Please try again.');
     });
   }

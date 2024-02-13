@@ -3,14 +3,28 @@
 <head>
   <meta charset="UTF-8">
   <title>Login</title>
+  <!-- Bootstrap CSS CDN -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+  <!-- Custom theme CSS -->
+  <link rel="stylesheet" href="/css/theme.css">
 </head>
-<body>
-  <form action="/login" method="post">
-    <label for="username">Username:</label>
-    <input type="text" id="username" name="username" required>
-    <label for="password">Password:</label>
-    <input type="password" id="password" name="password" required>
-    <button type="submit">Login</button>
-  </form>
+<body class="bg-dark-charcoal">
+  <%- include('partials/header', {user: user}) %>
+  <div class="container mt-4 text-center">
+    <h2 class="text-off-white">Login</h2>
+    <form action="/login" method="post" class="form-signin mt-3">
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="username" name="username" placeholder="Username" required autofocus>
+        <label for="username" class="text-off-white">Username</label>
+      </div>
+      <div class="form-floating mb-3">
+        <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
+        <label for="password" class="text-off-white">Password</label>
+      </div>
+      <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
+    </form>
+  </div>
+  <%- include('partials/footer') %>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.0/js/bootstrap.bundle.min.js" integrity="sha384-zaIcCO4LwTZzJFbcJrA1PAIYyiF6PbPb6Yp6RWt2qjcnH0VfGckB8usT1OOJpFV4" crossorigin="anonymous"></script>
 </body>
 </html>

@@ -55,9 +55,9 @@ const authRequired = require('./middlewares/authRequired');
 
 // Serve the main page only if the user is authenticated
 app.get('/', authRequired, (req, res, next) => {
-  res.render('index', function(err, html) {
+  res.render('index', {user: req.user}, function(err, html) {
     if (err) {
-      console.error('Error rendering index:', err.stack);
+      console.error('Error rendering index:', err.stack); // gpt_pilot_debugging_log
       return next(err);
     }
     res.send(html);
