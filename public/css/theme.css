@@ -142,3 +142,9 @@ footer a:hover {
   border-radius: 0.375rem; /* Rounded corners for a smooth look */
   transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out; /* Smooth transition for hover effect */
 }
+
+/* Styles for more readable alert messages */
+.alert-info {
+    color: var(--dark-charcoal);
+    background-color: var(--light-gray);
+}

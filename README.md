@@ -1,34 +1,34 @@
 # Star_History
 
-Star_History is a Node.js web application that allows users to input URLs for two public GitHub repositories, compare their historical star data, and visualize this information on a zoomable line chart. Users must be registered and authenticated to access this feature.
+Star_History is a Node.js web application that allows users to visualize the star history of GitHub repositories. It compares the popularity over time of two public repositories by plotting an interactive and zoomable line chart based on the number of stars the repositories have received. Users can register and login to gain access to this tool, ensuring that the GitHub API is queried securely using authenticated requests.
 
 ## Overview
 
-The application is structured into a backend built with Node.js and Express, serving EJS rendered pages for the user interface. User sessions are managed with MongoDB utilizing connect-mongo, while user authentication is handled by Passport.js. The star history data is fetched using the authenticated GitHub API, stored in MongoDB for caching, and plotted using Chart.js with a chartjs-plugin-zoom for interactivity.
+The application is built using the Express framework in Node.js and employs MongoDB for session storage and caching star histories to optimize performance. User authentication is provided by Passport.js. The front end is constructed using EJS templates, and charts are powered by Chart.js with a zoom plugin. It enforces the use of environmental variables such as the MongoDB URI and GitHub API token for secure operations.
 
 ## Features
 
-- Fetch and compare star history for two public GitHub repositories
-- User authentication with register/login/logout functionality
-- Cached star history data to minimize API calls
-- Zoomable and interactive line charts
-- Server-side error handling and user input validation
+- Interactive visualization of GitHub star history for comparison between repositories
+- Secure user authentication with register, login, and logout capabilities
+- Cache mechanism to store star history, minimizing repetitive API calls
+- Error handling for non-public repositories
+- Environmental variable management with dotenv for security
 
 ## Getting started
 
 ### Requirements
 
 - Node.js
-- MongoDB
-- A GitHub API token
+- MongoDB with running service
+- GitHub API token
 
 ### Quickstart
 
 1. Clone the repository to your local machine.
-2. Install the dependencies by running `npm install`.
-3. Create a `.env` file with your own GitHub API token and other environment settings.
-4. Ensure that MongoDB is running locally on your machine.
-5. Start the application server with `npm start` and access it via `http://localhost:3000/`.
+2. Install the project dependencies with `npm install`.
+3. Setup the `.env` file with the necessary environmental variables.
+4. Start your local MongoDB service.
+5. Run the server with `npm start` and navigate to `http://localhost:3000/` in your web browser.
 
 ### License
 

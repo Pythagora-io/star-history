@@ -5,6 +5,7 @@ const MongoStore = require('connect-mongo');
 const passport = require('passport');
 const mongoose = require('mongoose');
 const path = require('path');
+const flash = require('express-flash');
 const app = express();
 
 // Passport configuration for User authentication
@@ -33,6 +34,7 @@ app.use(session({
 
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(flash());
 
 // Connect to MongoDB
 mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
